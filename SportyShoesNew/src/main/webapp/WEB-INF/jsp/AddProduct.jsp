@@ -9,6 +9,7 @@
 <title>Add Product</title>
 </head>
 <h2><a href="home">Home</a></h2>
+<h2><a href="logout">Logout</a></h2>
 <body>
 	<h1>Add Product</h1>
 	<form action="addproduct" method="post">

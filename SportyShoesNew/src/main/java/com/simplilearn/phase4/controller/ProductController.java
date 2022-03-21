@@ -47,15 +47,12 @@ public class ProductController {
 	@RequestMapping(value = "/addproduct", method = RequestMethod.POST)
 	String saveProduct(@RequestParam(value="pdtName") String pdtName, @RequestParam(value="pdtPrice", defaultValue = "0.00") double pdtPrice, @RequestParam(value="category") Category category,Model model ) {
 		if(pdtName == null || pdtName.trim()=="") {
-			model.addAttribute("errormsg", "Product Name cannot be blank");
 			return "error";
 		}
 		if(pdtPrice == 0.00) {
-			model.addAttribute("errormsg", "Product Price cannot be blank or 0");
 			return "error";
 		}
 		if(category.getCategoryName()=="Select One") {
-			model.addAttribute("errormsg", "Category Name cannot be blank");
 			return "error";
 		}
 		Product product = new Product(pdtName,pdtPrice,category);
@@ -71,7 +68,6 @@ public class ProductController {
 	@RequestMapping(value = "/addcategory", method = RequestMethod.POST)
 	String saveCategory(@RequestParam("catName") String catName,Model model) {
 		if(catName == null || catName.trim()=="") {
-			model.addAttribute("errormsg", "Category Name cannot be blank");
 			return "error";
 		}
 		Category category = new Category(catName);

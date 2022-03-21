@@ -7,6 +7,7 @@
 <title>Change Password</title>
 </head>
 <h2><a href="home">Home</a></h2>
+<h2><a href="logout">Logout</a></h2>
 <body>
 	<H1>Change Password</H1>
 	<form action="changePassword" method="post">

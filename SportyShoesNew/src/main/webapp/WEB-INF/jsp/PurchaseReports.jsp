@@ -9,6 +9,7 @@
 <title>Purchase Reports</title>
 </head>
 <h2><a href="home">Home</a></h2>
+<h2><a href="logout">Logout</a></h2>
 <body>
 	<form action="findPurchaseReports" method="post">
 		<table>

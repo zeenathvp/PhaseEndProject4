@@ -7,7 +7,11 @@
 <title>Error Found</title>
 </head>
 <h2><a href="home">Home</a></h2>
+<h2><a href="logout">Logout</a></h2>
 <body>
-	<h2><%= request.getAttribute("errormsg") %> </h2>
+
+			<h1>Something went wrong! </h1>
+			<h2>Please check whether all the inputs are provided</h2>
+
 </body>
 </html>

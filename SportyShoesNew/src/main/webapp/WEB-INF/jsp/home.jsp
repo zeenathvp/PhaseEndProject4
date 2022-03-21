@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Home</title>
 </head>
+<h2><a href="logout">Logout</a></h2>
 <body>
 	<center>
 		<table>

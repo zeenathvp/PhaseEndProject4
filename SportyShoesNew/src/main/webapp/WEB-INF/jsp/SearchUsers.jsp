@@ -9,6 +9,7 @@
 <title>View Users</title>
 </head>
 <h2><a href="home">Home</a></h2>
+<h2><a href="logout">Logout</a></h2>
 <body>
 	<form action="searchUserbyName" method="post">
 		<div>

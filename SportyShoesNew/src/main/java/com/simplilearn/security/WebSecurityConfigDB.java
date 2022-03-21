@@ -45,7 +45,7 @@ public class WebSecurityConfigDB extends WebSecurityConfigurerAdapter {
 			.failureUrl("/login?error=true").permitAll()
 			.and()
 			.csrf()
-			.disable();
+			.disable().logout();
 	}  
 	
 	@Override

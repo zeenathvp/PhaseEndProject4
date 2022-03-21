@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.AnonymousAuthenticationToken;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -32,7 +30,10 @@ public class UserController {
 	}
 	
 	@RequestMapping(value = "/addUser", method = RequestMethod.POST)
-	public String AddUser(@RequestParam(value="userName") String userName,@RequestParam(value="password") String password,Model model) {		
+	public String AddUser(@RequestParam(value="userName") String userName,@RequestParam(value="password") String password,Model model) {	
+		if(userName == null || userName.trim()=="" || password == null || password.trim()=="") {
+			return "error";
+		}
 		User user = new User(userName,passwordEncoder.encode(password),"USER");
 		userService.createUser(user);
 		model.addAttribute("message", "User Succesfully Added");
@@ -47,7 +48,6 @@ public class UserController {
 	@RequestMapping(value = "/changePassword", method = RequestMethod.POST)
 	public String ChangePassword(@RequestParam(value="password") String password,Model model) {
 		if(password == null || password.trim()=="") {
-			model.addAttribute("errormsg", "Password cannot be blank");
 			return "error";
 		}
 		String username ="";
@@ -57,9 +57,7 @@ public class UserController {
 		} else {
 			username = principal.toString();
 		}
-		System.out.println("User name is "+username);
 		User user = userService.getUser(username);
-		System.out.println("User id is "+user.getId());
 		User updateUser = new User(user.getId(),username,passwordEncoder.encode(password),"ADMIN");
 		userService.updateUser(user.getId(), updateUser);
 		return "home";
